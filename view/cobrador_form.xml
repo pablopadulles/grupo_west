@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="lastname"/>
+    <field name="lastname"/>
+    <label name="dni"/>
+    <field name="dni"/>
+</form>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form col="4">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="fecha"/>
+    <field name="fecha"/>
+    <label name="zona"/>
+    <field name="zona"/>
+    <label name="cobrador"/>
+    <field name="cobrador"/>
+    <newline/>
+    <field name="clientes" colspan="4" view_ids="grupo_west.cliente_view_tree,grupo_west.cliente_view_form" />
+    <label name="monto_recolectado"/>
+    <field name="monto_recolectado"/>
+</form>

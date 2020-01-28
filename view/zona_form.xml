@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name"/>
+    <newline/>
+    <field name="clientes" colspan="6" view_ids="grupo_west.cliente_view_tree,grupo_west.cliente_view_form" />
+</form>

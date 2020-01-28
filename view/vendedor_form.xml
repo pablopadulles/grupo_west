@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="lastname"/>
+    <field name="lastname"/>
+    <label name="dni"/>
+    <field name="dni"/>
+    <newline/>
+    <field name="childs" colspan="6" view_ids="grupo_west.cliente_view_tree,grupo_west.cliente_view_form" />
+</form>

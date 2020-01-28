@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form>
+    <label name="party"/>
+    <field name="party"/>
+    <newline/>
+    <label name="latitud"/>
+    <field name="latitud"/>
+    <label name="longitud"/>
+    <field name="longitud"/>
+    <label name="fecha_hora"/>
+    <field name="fecha_hora"/>
+</form>

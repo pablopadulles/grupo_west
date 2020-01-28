@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form col="6">
+    <group col="6" colspan="4">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="lastname"/>
+        <field name="lastname"/>
+        <label name="dni"/>
+        <field name="dni"/>
+        <label name="parent"/>
+        <field name="parent"/>
+        <label name="zona"/>
+        <field name="zona"/>
+        <field name="productos"/>
+    </group>
+    <group col="6" colspan="4">
+        <field name="foto" widget="image" readonly="1" colspan="2"/>
+    </group>
+</form>

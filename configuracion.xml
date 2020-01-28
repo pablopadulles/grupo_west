@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <menuitem name="Party" sequence="10" id="party.menu_party"
+            icon="tryton-party"/>
+
+<!--        <menuitem sequence="10" id="product.menu_main_product"/>-->
+
+        <menuitem name="Configuracion" id="menu_config_tree" sequence="900"/>
+    </data>
+
+    <data noupdate="1">
+        <record model="party.category"
+            id="vendedor">
+            <field name="name">Vendedor</field>
+        </record>
+        <record model="party.category"
+            id="cobrador">
+            <field name="name">Cobrador</field>
+        </record>
+        <record model="party.category"
+            id="cliente">
+            <field name="name">Cliente</field>
+        </record>
+    </data>
+</tryton>

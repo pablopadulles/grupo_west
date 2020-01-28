@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+<!--    Ventas   -->
+        <record model="ir.ui.view" id="venta_view_form">
+            <field name="model">gwest.venta</field>
+            <field name="type">form</field>
+            <field name="name">venta_form</field>
+        </record>
+        <record model="ir.ui.view" id="venta_view_tree">
+            <field name="model">gwest.venta</field>
+            <field name="type">tree</field>
+            <field name="name">venta_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_venta">
+            <field name="name">Ventas</field>
+            <field name="res_model">gwest.venta</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_venta_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="venta_view_tree"/>
+            <field name="act_window" ref="act_venta"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_venta_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="venta_view_form"/>
+            <field name="act_window" ref="act_venta"/>
+        </record>
+
+        <menuitem sequence="1" id="menu_venta" action="act_venta"/>
+
+<!--    Pagos   -->
+        <record model="ir.ui.view" id="pago_view_form">
+            <field name="model">gwest.pago</field>
+            <field name="type">form</field>
+            <field name="name">pago_form</field>
+        </record>
+        <record model="ir.ui.view" id="pago_view_tree">
+            <field name="model">gwest.pago</field>
+            <field name="type">tree</field>
+            <field name="name">pago_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_pago">
+            <field name="name">Pago</field>
+            <field name="res_model">gwest.pago</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_pago_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="pago_view_tree"/>
+            <field name="act_window" ref="act_pago"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_pago_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="pago_view_form"/>
+            <field name="act_window" ref="act_pago"/>
+        </record>
+
+        <menuitem sequence="1" id="menu_pago" action="act_pago" />
+
+    </data>
+</tryton>

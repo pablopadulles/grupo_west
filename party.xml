@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+<!--    Vendedores   -->
+        <record model="ir.ui.view" id="vendedor_view_form">
+            <field name="model">party.party</field>
+            <field name="type">form</field>
+            <field name="name">vendedor_form</field>
+        </record>
+        <record model="ir.ui.view" id="vendedor_view_tree">
+            <field name="model">party.party</field>
+            <field name="type">tree</field>
+            <field name="name">vendedor_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_party_vendedor">
+            <field name="name">Vendedores</field>
+            <field name="res_model">party.party</field>
+            <field name="context"
+                eval="{'categories': [1]}" pyson="1"/>
+            <field name="domain"
+                eval="[('categories', 'child_of', [1], 'parent')]"
+                pyson="1"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_vendedor_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="vendedor_view_tree"/>
+            <field name="act_window" ref="act_party_vendedor"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_vendedor_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="vendedor_view_form"/>
+            <field name="act_window" ref="act_party_vendedor"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_vendedor" action="act_party_vendedor"
+            icon="tryton-party"/>
+
+
+<!--    Cobradores   -->
+        <record model="ir.ui.view" id="cobrador_view_form">
+            <field name="model">party.party</field>
+            <field name="type">form</field>
+            <field name="name">cobrador_form</field>
+        </record>
+        <record model="ir.ui.view" id="cobrador_view_tree">
+            <field name="model">party.party</field>
+            <field name="type">tree</field>
+            <field name="name">cobrador_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_party_cobrador">
+            <field name="name">Cobradores</field>
+            <field name="res_model">party.party</field>
+            <field name="context"
+                eval="{'categories': [2]}" pyson="1"/>
+            <field name="domain"
+                eval="[('categories', 'child_of', [2], 'parent')]"
+                pyson="1"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_cobrador_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="cobrador_view_tree"/>
+            <field name="act_window" ref="act_party_cobrador"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_cobrador_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="cobrador_view_form"/>
+            <field name="act_window" ref="act_party_cobrador"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_cobrador" action="act_party_cobrador"
+            icon="tryton-party"/>
+
+<!--    Clientes   -->
+        <record model="ir.ui.view" id="cliente_view_form">
+            <field name="model">party.party</field>
+            <field name="type">form</field>
+            <field name="name">cliente_form</field>
+        </record>
+        <record model="ir.ui.view" id="cliente_view_tree">
+            <field name="model">party.party</field>
+            <field name="type">tree</field>
+            <field name="name">cliente_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_party_cliente">
+            <field name="name">Clientes</field>
+            <field name="res_model">party.party</field>
+            <field name="context"
+                eval="{'categories': [3]}" pyson="1"/>
+            <field name="domain"
+                eval="[('categories', 'child_of', [3], 'parent')]"
+                pyson="1"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_cliente_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="cliente_view_tree"/>
+            <field name="act_window" ref="act_party_cliente"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_cliente_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="cliente_view_form"/>
+            <field name="act_window" ref="act_party_cliente"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_cliente" action="act_party_cliente"
+            icon="tryton-party"/>
+
+    </data>
+</tryton>

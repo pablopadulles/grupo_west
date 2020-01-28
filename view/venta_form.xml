@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name"/>
+    <newline/>
+    <label name="precio"/>
+    <field name="precio"/>
+    <label name="cuotas"/>
+    <field name="cuotas"/>
+    <label name="restante"/>
+    <field name="restante"/>
+    <label name="pago_parcial"/>
+    <field name="pago_parcial"/>
+    <newline/>
+    <field name="pagos" colspan="6"/>
+</form>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="name"/>
+    <field name="fecha"/>
+    <field name="cobrador"/>
+    <field name="monto_recolectado"/>
+</tree>

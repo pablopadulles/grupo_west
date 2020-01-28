@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+<!--    Zona   -->
+        <record model="ir.ui.view" id="zona_view_form">
+            <field name="model">gwest.zona</field>
+            <field name="type">form</field>
+            <field name="name">zona_form</field>
+        </record>
+        <record model="ir.ui.view" id="zona_view_tree">
+            <field name="model">gwest.zona</field>
+            <field name="type">tree</field>
+            <field name="name">zona_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_zona">
+            <field name="name">Zonas</field>
+            <field name="res_model">gwest.zona</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_zona_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="zona_view_tree"/>
+            <field name="act_window" ref="act_zona"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_zona_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="zona_view_form"/>
+            <field name="act_window" ref="act_zona"/>
+        </record>
+
+        <menuitem sequence="1" id="menu_zona" action="act_zona"/>
+
+<!--    Zona   -->
+        <record model="ir.ui.view" id="recorrido_view_form">
+            <field name="model">gwest.recorrido</field>
+            <field name="type">form</field>
+            <field name="name">recorrido_form</field>
+        </record>
+        <record model="ir.ui.view" id="recorrido_view_tree">
+            <field name="model">gwest.recorrido</field>
+            <field name="type">tree</field>
+            <field name="name">recorrido_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_recorrido">
+            <field name="name">Recorridos</field>
+            <field name="res_model">gwest.recorrido</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_recorrido_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="recorrido_view_tree"/>
+            <field name="act_window" ref="act_recorrido"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_recorrido_tree_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="recorrido_view_form"/>
+            <field name="act_window" ref="act_recorrido"/>
+        </record>
+
+        <menuitem sequence="1" id="menu_recorrido" action="act_recorrido"/>
+
+
+    </data>
+</tryton>

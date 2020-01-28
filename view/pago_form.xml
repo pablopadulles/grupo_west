@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="pago"/>
+    <field name="pago"/>
+</form>
