@@ -26,7 +26,9 @@ class Party(metaclass=PoolMeta):
     gpss = fields.One2Many('gwest.gps', 'party', 'GPS')
     zona = fields.Many2One('gwest.zona', 'Zona', select=True)
     parent = fields.Many2One('party.party', 'Vendedor', select=True)
-    childs = fields.One2Many('party.party', 'parent', 'Clientes')
+    childs = fields.One2Many('party.party', 'parent', 'Clientes',
+        states={'readonly': True,
+            })
     dni = fields.Char('DNI')
     foto = fields.Binary('Binary')
     productos = fields.One2Many('gwest.venta', 'cliente', 'Compras')

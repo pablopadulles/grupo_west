@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <form col="6">
-    <group col="6" colspan="4">
+    <group col="6" colspan="4" id="general">
         <label name="name"/>
         <field name="name"/>
         <label name="lastname"/>
@@ -11,9 +11,14 @@
         <field name="parent"/>
         <label name="zona"/>
         <field name="zona"/>
-        <field name="productos"/>
+<!--        <newline/>-->
+<!--        <field name="addresses" mode="form,tree" colspan="6"-->
+<!--            view_ids="party.address_view_form,party.address_view_tree_sequence"/>-->
+
+        <newline/>
+        <field name="productos" colspan="6"/>
     </group>
-    <group col="6" colspan="4">
+    <group col="1" colspan="2" id="foto">
         <field name="foto" widget="image" readonly="1" colspan="2"/>
     </group>
 </form>

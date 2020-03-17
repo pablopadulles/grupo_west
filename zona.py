@@ -31,12 +31,12 @@ class Recorrido(ModelSQL, ModelView):
     "Recorridos de Cobrador"
     __name__ = 'gwest.recorrido'
 
-    name = fields.Char('Codigo de Recorrido')
+    name = fields.Char('Codigo de Recorrido', readonly=True)
     zona = fields.Many2One('gwest.zona', 'Zona')
     cobrador = fields.Many2One('party.party', 'Cobrador',
             domain=[('categories', 'child_of', [2], 'parent')])
-    fecha = fields.Date('Fecha')
-    monto_recolectado = fields.Numeric('Monto Recolectado')
+    fecha = fields.Date('Fecha', states={'required': True})
+    monto_recolectado = fields.Numeric('Monto Recolectado', states={'readonly': True})
     clientes = fields.Many2Many('gwest.recorrido-party.party',
             'recorrido', 'party', 'Clientes',
             domain=[
@@ -47,15 +47,39 @@ class Recorrido(ModelSQL, ModelView):
     def __setup__(cls):
         super(Recorrido, cls).__setup__()
         cls._buttons.update({
-            'crear_recorrido_zona': {'invisible': True}
+            'crear_recorrido_zona': {'invisible': False}
             })
 
     @classmethod
     def crear_recorrido_zona(cls, recorridos):
         for recorrido in recorridos:
-            #TODO hay que llenar el recorrido teniendo en cuenta la zona. Si ese campo esta bacio hay que borrar el contenido.
-            # en clientes hay que poner los clientes que tiene que visitar.
+            clientes = list(recorrido.clientes)
+            if recorrido.zona:
+                for cliente in recorrido.zona.clientes:
+                    clientes.append(cliente)
+                recorrido.clientes = clientes
+            else:
+                recorrido.clientes = None
             recorrido.save()
+
+    @classmethod
+    def _new_code(cls, **pattern):
+        pool = Pool()
+        Sequence = pool.get('ir.sequence')
+        Configuration = pool.get('gwest.sequences')
+        config = Configuration(1)
+        sequence = config.get_multivalue('recorrido_sequence', **pattern)
+        if sequence:
+            return Sequence.get_id(sequence.id)
+
+    @classmethod
+    def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                values['name'] = cls._new_code()
+        return super(Recorrido, cls).create(vlist)
+
 
 class RecorridoCliente(ModelSQL):
     'Recorrido - Cliente'

@@ -30,11 +30,28 @@ class Venta(ModelSQL, ModelView):
     pago_parcial = fields.Function(fields.Numeric('Parcial Abonado'), 'get_pago_parcial')
     cliente = fields.Many2One('party.party', 'Cliente')
 
+    @staticmethod
+    def default_precio():
+        return Decimal('0')
+
     def get_restante(self, name):
-        return Decimal('999')
+        total = Decimal(0)
+        for pago in self.pagos:
+            total += pago.pago
+        return self.precio - total
 
     def get_pago_parcial(self, name):
-        return Decimal('999')
+        total = Decimal(0)
+        for pago in self.pagos:
+            total += pago.pago
+        return total
+
+    @fields.depends('name', 'precio')
+    def on_change_name(self):
+        if self.name:
+            self.precio = self.name.list_price
+        if not self.name:
+            self.precio = Decimal('0')
 
 
 class Pago(ModelSQL, ModelView):

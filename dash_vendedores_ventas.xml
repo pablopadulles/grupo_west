@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.action.act_window" id="action_dashboard_vendedor">
+            <field name="name">Vendores</field>
+            <field name="res_model">party.party</field>
+            <field name="domain"
+                eval="[('categories', 'child_of', [1], 'parent')]"
+                pyson="1"/>
+        </record>
+
+        <record model="ir.action.act_window.view"
+            id="action_dashboard_vendedor_plata">
+            <field name="sequence" eval="1"/>
+            <field name="view" ref="vendedor_view_tree"/>
+            <field name="act_window" ref="action_dashboard_vendedor"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_dashboard_ventas">
+            <field name="name">Ventas</field>
+            <field name="res_model">gwest.venta</field>
+            <field name="domain" eval="[('healthprof', '=', Get(Eval('clinica.action_dashboard_healthprofessional', {}), 'id', None)),
+                                        ('state', '=', 'free')]" pyson="1"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_view_dashboard_doc">
+            <field name="sequence" eval="1"/>
+            <field name="view" ref="gnuhealth_appointment_tree"/>
+            <field name="act_window" ref="act_dashboard_appointment"/>
+        </record>
+
+
+        <!-- menu -->
+
+        <record model="ir.ui.view" id="view_dashboard_vendedores">
+            <field name="model"></field>
+            <field name="type">board</field>
+            <field name="name">dashboard_vendedores</field>
+        </record>
+        <record model="ir.action.act_window" id="act_dashboard_vendedores">
+            <field name="name">Vendedores-Ventas</field>
+            <field name="res_model"></field>
+            <field name="type">ir.action.act_window</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_dashboard_view1">
+            <field name="sequence" eval="1"/>
+            <field name="view" ref="view_dashboard_vendedores"/>
+            <field name="act_window" ref="act_dashboard_vendedores"/>
+        </record>
+
+        <menuitem id="menu_dashboard_vendedores" action="act_dashboard_vendedores"
+            sequence="100"/>
+    </data>
+</tryton>

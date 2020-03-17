@@ -6,6 +6,7 @@ from . import gps
 from . import party
 from . import venta
 from . import zona
+from . import configuracion
 
 def register():
     Pool.register(
@@ -14,6 +15,10 @@ def register():
         venta.Pago,
         venta.Venta,
         zona.Zona,
+        zona.Recorrido,
+        zona.RecorridoCliente,
+        configuracion.ConfigurationSequence,
+        configuracion.ConfigurationRecorridoSequence,
         module='grupo_west', type_='model')
     # Pool.register(
     #     party.CheckVIES,

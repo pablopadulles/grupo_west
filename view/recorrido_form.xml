@@ -4,11 +4,12 @@
     <field name="name"/>
     <label name="fecha"/>
     <field name="fecha"/>
+    <label name="cobrador"/>
+    <field name="cobrador" view_ids="grupo_west.cobrador_view_tree,grupo_west.cobrador_view_form"/>
+    <newline/>
     <label name="zona"/>
     <field name="zona"/>
-    <label name="cobrador"/>
-    <field name="cobrador"/>
-    <newline/>
+    <button name="crear_recorrido_zona" string="Llenar" colspan="2"/>
     <field name="clientes" colspan="4" view_ids="grupo_west.cliente_view_tree,grupo_west.cliente_view_form" />
     <label name="monto_recolectado"/>
     <field name="monto_recolectado"/>
